@@ -1,0 +1,22 @@
+
+header {
+    width: 100%;
+    height: 20vh;
+    border: 2px solid black;
+    margin-bottom: 5px;
+}
+
+main {
+    width: 80%;
+    height: 60vh;
+    border: 2px solid black;
+    margin-left: 10%;
+    margin-bottom: 5px;
+    
+}
+
+footer {
+    width: 100%;
+    border: 2px solid black;
+    height: 15vh;
+}
