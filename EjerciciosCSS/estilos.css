@@ -1,0 +1,59 @@
+/* El primer párrafo de cada noticia aparezca en negrita.*/
+.noticia p:first-of-type {
+    font-weight: bold;
+}
+
+/*Los enlaces cambien de color cuando el usuario pase el ratón
+por encima y también cuando se navegue con el teclado.*/
+a:hover, a:focus {
+    color: red;
+}
+
+/*Añade un icono decorativo antes de cada título de noticia.*/
+.noticia .titulo:before {
+    content: "📰";
+}
+
+/*Haz que el primer carácter de cada párrafo sea más grande y
+destaque visualmente.
+*/
+p::first-letter {
+    font-size: 2rem;
+}
+
+/*Personaliza la apariencia del texto cuando es seleccionado por
+el usuario.
+*/
+::selection {
+    background: yellow;
+    color: black;
+}
+
+/*Alterna el color de fondo de las noticias para diferenciarlas
+visualmente.*/
+.noticia:nth-child(even) {
+    background-color: rgb(123, 123, 123);
+}
+
+.noticia:nth-child(odd) {
+    background-color: rgb(181, 175, 175);
+}
+
+
+
+/*
+¿Qué sucede si el icono decorativo aporta
+información importante y no solo estética?
+Habría que incluir el atributo alt.
+
+
+¿Cómo ayudas a los usuarios que navegan con
+teclado a saber en qué enlace están?
+Con :focus
+
+¿Qué problema existe si el único criterio para
+diferenciar noticias o enlaces es el color?
+Las personas con daltonismo pueden tener dificultades
+para distinguir ciertos colores.
+
+*/
