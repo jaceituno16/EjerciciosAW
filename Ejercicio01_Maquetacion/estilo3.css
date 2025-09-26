@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.grid {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "nav nav"
+        "options main"
+        "footer footer";
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 20% 10% 60% 10%;
+    gap: 5px;
+    height: calc(100vh - 15px); /* Ajusta la altura total: al 100% de la pantalla le quito los gaps (5px cada uno)*/
+    width: calc(100% - 5px); 
+    box-sizing: border-box; /* Incluye el padding y border en el tamaño total */
+}
+
+.header {
+    grid-area: header;
+    background-color: lightblue;
+    border: 2px solid black;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main {
+    grid-area: main;
+    background-color: lightgreen;
+    border: 2px solid black;
+    box-sizing: border-box;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: lightcoral;
+    border: 2px solid black;
+    box-sizing: border-box;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    display: none;
+}
+
+.title {
+    font-size: 2rem;
+}
+
+.nav{
+    grid-area: nav;
+    background-color: lightyellow;
+    border: 2px solid black;
+    box-sizing: border-box;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login{
+    display: none;
+}
+
+.options{
+    grid-area: options;
+    background-color: lightgray;
+    border: 2px solid black;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.article1{
+    display: none;
+}
+
+.article2{
+    display: none;
+}
+
+.search{
+    display: none;
+}
+
+.news{
+    display: none;
+}
