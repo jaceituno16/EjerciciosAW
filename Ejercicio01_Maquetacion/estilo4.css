@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.grid {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "nav nav nav"
+        "options main article1"
+        "options main article2"
+        "footer footer footer";
+    grid-template-columns: 20% 50% 30%;
+    grid-template-rows: 20% 10% 30% 30% 10%;
+    gap: 5px;
+    height: calc(100vh - 20px); /* Ajusta la altura total: al 100% de la pantalla le quito los gaps (5px cada uno)*/
+    width: calc(100% - 10px); 
+    box-sizing: border-box; /* Incluye el padding y border en el tamaño total */
+}
+
+.header {
+    grid-area: header;
+    background-color: lightblue;
+    border: 2px solid black;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main {
+    grid-area: main;
+    background-color: lightgreen;
+    border: 2px solid black;
+    box-sizing: border-box;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: lightcoral;
+    border: 2px solid black;
+    box-sizing: border-box;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    display: none;
+}
+
+.title {
+    font-size: 2rem;
+}
+
+.nav{
+    grid-area: nav;
+    background-color: lightyellow;
+    border: 2px solid black;
+    box-sizing: border-box;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login{
+    display: none;
+}
+
+.options{
+    grid-area: options;
+    background-color: lightgray;
+    border: 2px solid black;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.article1{
+    grid-area: article1;
+    background-color: lightpink;
+    border: 2px solid black;
+    box-sizing: border-box;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.article2{
+    grid-area: article2;
+    background-color: lightseagreen;
+    border: 2px solid black;
+    box-sizing: border-box;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search{
+    display: none;
+}
+
+.news{
+    display: none;
+}
