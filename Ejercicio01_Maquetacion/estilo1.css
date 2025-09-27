@@ -1,25 +1,8 @@
-
-/*header {
-    width: 100%;
-    height: 20vh;
-    border: 2px solid black;
-    margin-bottom: 5px;
+:root { /* Configurar variables */
+    --gap: 5px;
+    --border: 2px solid black;
+    --font-size: 2rem;
 }
-
-main {
-    width: 80%;
-    height: 60vh;
-    border: 2px solid black;
-    margin-left: 10%;
-    margin-bottom: 5px;
-    
-}
-
-footer {
-    width: 100%;
-    border: 2px solid black;
-    height: 15vh;
-}*/
 
 body {
     margin: 0;
@@ -34,15 +17,17 @@ body {
         "footer";
     grid-template-columns: 100%;
     grid-template-rows: 20% 70% 10%;
-    gap: 5px;
-    height: calc(100vh - 10px); /* Ajusta la altura total: al 100% de la pantalla le quito los gaps (5px cada uno)*/
+    gap: var(--gap); /* gap: 5px */
+    margin: var(--gap);
+    height: calc(100vh - 4*var(--gap)); /* Ajusta la altura total: al 100% de la pantalla le quito los gaps */
+    width: calc(100vw - 2*var(--gap));
     box-sizing: border-box; /* Incluye el padding y border en el tamaño total */
 }
 
 .header {
     grid-area: header;
     background-color: lightblue;
-    border: 2px solid black;
+    border: var(--border);
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -51,18 +36,18 @@ body {
 
 
 .title {
-    font-size: 2rem;
+    font-size: var(--font-size);
 }
 
 .main {
     grid-area: main;
     background-color: lightgreen;
-    border: 2px solid black;
+    border: var(--border);
     box-sizing: border-box;
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
-    font-size: 2rem;
+    font-size: var(--font-size);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,9 +56,9 @@ body {
 .footer {
     grid-area: footer;
     background-color: lightcoral;
-    border: 2px solid black;
+    border: var(--border);
     box-sizing: border-box;
-    font-size: 2rem;
+    font-size: var(--font-size);
     display: flex;
     align-items: center;
     justify-content: center;
