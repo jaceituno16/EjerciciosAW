@@ -52,11 +52,27 @@ body {
 }
 
 .logo{
-    display: none;
+    border: 2px solid black;
+    width: 10%;
+    height: calc(100% - 10px);
+    box-sizing: border-box;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
 }
 
 .title {
     font-size: 2rem;
+    width: 90%;
+    height: calc(100% - 10px);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 5px;
+    padding: 2rem;
 }
 
 .nav{
