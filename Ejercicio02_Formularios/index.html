@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suscripción a la Revista</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+    <div class="container mt-5">
+
+        <h1 class="text-center mb-4 text-primary">Suscripción a la Revista</h1>
+        
+        <form id="subscription-form" action="#" method="post">
+
+            <!-- Datos personales -->
+            <fieldset class="border rounded p-3 mb-4">
+                <legend class="w-auto text-secondary">Datos personales</legend>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="nombre" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="col">
+                        <label for="primer-apellido" class="form-label">Primer apellido:</label>
+                        <input type="text" class="form-control" id="primer-apellido" name="primer-apellido" required>
+                    </div>
+
+                    <div class="col">
+                        <label for="segundo-apellido" class="form-label">Segundo apellido:</label>
+                        <input type="text" class="form-control" id="segundo-apellido" name="segundo-apellido">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="direccion" class="form-label">Dirección:</label>
+                    <input type="text" class="form-control" id="direccion" name="direccion"
+                        placeholder="calle o plaza, número y piso" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">e-mail:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="@" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="contrasena" class="form-label">contraseña:</label>
+                    <input type="password" class="form-control" id="contrasena" name="contrasena" required>
+                </div>
+
+                <fieldset>
+                    <legend class="w-auto fs-6">sexo</legend>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sexo" id="varon" value="varon" required>
+                        <label class="form-check-label" for="varon">Varón</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sexo" id="mujer" value="mujer" required>
+                        <label class="form-check-label" for="mujer">Mujer</label>
+                    </div>
+                </fieldset>
+            </fieldset>
+
+            <!-- Nivel de estudios e intereses -->
+            <fieldset class="border rounded p-3 mb-4">
+                <legend class="w-auto text-secondary">Nivel de estudios e intereses</legend>
+
+                <div class="mb-3">
+                    <label for="nivel-estudios" class="form-label">Nivel de estudios:</label>
+                    <select class="form-select" id="nivel-estudios" name="nivel-estudios" required>
+                        <option value="">Certificado escolar</option>
+                        <option value="primarios">Estudios primarios</option>
+                        <option value="secundarios">Estudios secundarios</option>
+                        <option value="universitarios">Estudios universitarios</option>
+                        <option value="postgrado">Postgrado</option>
+                    </select>
+                </div>
+
+                <fieldset>
+                    <legend class="w-auto fs-6">Recibir artículos sobre los siguientes temas:</legend>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="temas[]" value="musica" id="musica">
+                        <label class="form-check-label" for="musica">Música</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="temas[]" value="deportes" id="deportes">
+                        <label class="form-check-label" for="deportes">Deportes</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="temas[]" value="cine" id="cine">
+                        <label class="form-check-label" for="cine">Cine</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="temas[]" value="libros" id="libros">
+                        <label class="form-check-label" for="libros">Libros</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="temas[]" value="ciencia" id="ciencia">
+                        <label class="form-check-label" for="ciencia">Ciencia</label>
+                        </label>
+                    </div>
+                </fieldset>
+            </fieldset>
+
+            <!-- Datos sobre la revista -->
+            <fieldset class="border rounded p-3 mb-4">
+                <legend class="w-auto text-secondary">Datos sobre la revista</legend>
+
+                <div class="mb-3">
+                    <label for="frecuencia" class="form-label">Frecuencia con la que se recibirá la revista:</label>
+                    <select class="form-select" id="frecuencia" name="frecuencia" required>
+                        <option value="semanal">semanal</option>
+                        <option value="mensual">mensual</option>
+                        <option value="trimestral">trimestral</option>
+                        <option value="anual">anual</option>
+                    </select>
+                </div>
+
+                <div class="alert alert-info">
+                    <p class="mb-0">
+                        puedes mandar un artículo sobre cualquier tema de los que tratamos. Nosotros lo
+                        valoraremos para que pueda ser publicado.
+                    </p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="archivo" class="form-label">mandar artículo:</label>
+                    <input class="form-control" type="file" id="archivo" name="archivo">
+                </div>
+
+                <div class="mb-3">
+                    <label for="comentarios" class="form-label">Si deseas mandar simplemente una opinión o comentario
+                        escribe aquí:</label>
+                    <textarea class="form-control" id="comentarios" name="comentarios"
+                        placeholder="Escribe tu comentario:" rows="4"></textarea>
+                </div>
+            </fieldset>
+
+            <!-- Comenzar de nuevo -->
+            <fieldset class="border rounded p-3 mb-4">
+                <legend class="w-auto text-secondary">Comenzar de nuevo</legend>
+                <p>Borrar todos los datos del formulario y volver a empezar</p>
+                <button type="reset" class="btn btn-danger">borrar todo</button>
+            </fieldset>
+
+            <!-- Enviar -->
+            <fieldset class="border rounded p-3 mb-4">
+                <legend class="w-auto text-secondary">Enviar</legend>
+                <p>Enviar formulario por correo electrónico: Al pulsar en el botón se abrirá la
+                    página de envío de correo; en esa página pulse en enviar.</p>
+                <button type="submit" class="btn btn-success">enviar por correo</button>
+            </fieldset>
+        </form>
+
+    </div>
+</body>
+
+</html>
