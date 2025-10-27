@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="container bg-light p-4 border rounded mt-5 w-25">
+        
+        <h1 class="text-center">Calculadora Web</h1>
+
+        <form id="calculatorForm">
+            <div class="mb-3">
+                <label for="num1" class="form-label">Primer Número</label>
+                <input type="number" class="form-control form-control-lg" id="num1" name="num1"
+                    placeholder="Ingrese el primer número" step="any" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="num2" class="form-label">Segundo Número</label>
+                <input type="number" class="form-control form-control-lg" id="num2" name="num2"
+                    placeholder="Ingrese el segundo número" step="any" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="operation" class="form-label">Operación</label>
+                <select class="form-select form-select-lg" id="operation" name="operation" required>
+                    <option value="">Seleccione una operación...</option>
+                    <option value="sum">➕ Suma</option>
+                    <option value="subtract">➖ Resta</option>
+                    <option value="multiply">✖️ Multiplicación</option>
+                    <option value="divide">➗ División</option>
+                </select>
+            </div>
+
+            <!-- Alternativa con botones para cada operación -->
+            <div class="mb-3">
+                <label class="form-label">O seleccione con botones:</label>
+                <div class="btn-group w-100" role="group" aria-label="Operaciones">
+                    <button type="button" class="btn btn-outline-primary operation-btn" data-operation="sum">
+                        ➕ Suma
+                    </button>
+                    <button type="button" class="btn btn-outline-warning operation-btn" data-operation="subtract">
+                        ➖ Resta
+                    </button>
+                    <button type="button" class="btn btn-outline-success operation-btn" data-operation="multiply">
+                        ✖️ Multiplicar
+                    </button>
+                    <button type="button" class="btn btn-outline-danger operation-btn" data-operation="divide">
+                        ➗ Dividir
+                    </button>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-calculate btn-lg w-100">
+                🧮 Calcular
+            </button>
+        </form>
+
+        <div id="result" class="alert mt-4 d-none">
+            <p id="resultText"></p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <script>
+        $(document).ready(function () {
+            // Manejar clics en los botones de operación
+            $('.operation-btn').on('click', function () {
+                const operation = $(this).data('operation');
+                $('#operation').val(operation);
+
+                // Resaltar el botón seleccionado
+                $('.operation-btn').removeClass('active');
+                $(this).addClass('active');
+            });
+
+            // Manejar el envío del formulario
+            $('#calculatorForm').on('submit', function (event) {
+                event.preventDefault();
+
+                // Validar que se haya seleccionado una operación
+                if (!$('#operation').val()) {
+                    alert('Por favor seleccione una operación');
+                    return;
+                }
+
+                // Enviar los datos al servidor usando AJAX
+                $.post('/calculate', $(this).serialize(), function (data) {
+                    $('#result').removeClass('d-none');
+                    if (data.error) {
+                        $('#resultText').text('❌ ' + data.result);
+                        $('#result').removeClass('alert-info').addClass('alert-danger');
+                    } else {
+                        $('#resultText').text('Resultado: ' + data.result);
+                        $('#result').removeClass('alert-danger').addClass('alert-info');
+                    }
+                    $('#result').slideDown();
+                }).fail(function () {
+                    $('#resultText').text('❌ Error al conectar con el servidor');
+                    $('#result').removeClass('alert-info').addClass('alert-danger');
+                    $('#result').slideDown();
+                });
+            });
+
+            // Ocultar resultado cuando se modifiquen los inputs
+            $('#num1, #num2, #operation').on('change input', function () {
+                $('#result').slideUp();
+            });
+        });
+    </script>
+</body>
+
+</html>

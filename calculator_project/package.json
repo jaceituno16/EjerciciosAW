@@ -1,0 +1,22 @@
+{
+  "name": "calculator_project",
+  "version": "1.0.0",
+  "description": "Calculadora web básica usando Node.js y Bootstrap",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "calculator",
+    "nodejs",
+    "express",
+    "bootstrap"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.1.10"
+  }
+}
